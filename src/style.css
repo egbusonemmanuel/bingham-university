@@ -1,0 +1,2252 @@
+/* ==========================================================================
+   Bingham University Undergraduate Portal (MyBHU) - EXACT SCREENSHOT THEME
+   Dark Mode Carbon & Purple Flux Theme with Official Collapsible Sidebar
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+
+  /* Carbon Dark Palette */
+  --bg-dark: #121214;
+  --bg-sidebar: #151518;
+  --bg-card: #1f1f23;
+  --bg-card-subtle: #27272c;
+  --bg-card-hover: #2c2c33;
+  --border-color: #27272c;
+  --border-subtle: #383842;
+  --tree-line-color: #3f3f46;
+
+  /* Accents */
+  --purple-primary: #a855f7;
+  --purple-dark: #9333ea;
+  --purple-active-bg: #29183d;
+  --purple-active-text: #d8b4fe;
+
+  /* Status Colors */
+  --green-status: #22c55e;
+  --red-status: #ef4444;
+
+  --blue-alert-bg: #13233c;
+  --blue-alert-border: #1e3a8a;
+  --blue-alert-text: #60a5fa;
+
+  --gold-session-bg: #713f12;
+  --gold-session-border: #854d0e;
+  --gold-session-text: #fef08a;
+
+  --gold-badge-bg: rgba(234, 179, 8, 0.15);
+  --gold-badge-border: rgba(234, 179, 8, 0.4);
+  --gold-badge-text: #facc15;
+
+  /* Typography */
+  --text-white: #f8fafc;
+  --text-gray-100: #e2e8f0;
+  --text-gray-300: #cbd5e1;
+  --text-gray-400: #94a3b8;
+  --text-gray-500: #64748b;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.icon-xs { width: 14px; height: 14px; }
+.icon-sm { width: 16px; height: 16px; }
+.icon-md { width: 18px; height: 18px; }
+.icon-lg { width: 22px; height: 22px; }
+
+.hidden { display: none !important; }
+
+/* ==========================================================================
+   APP SHELL LAYOUT (SIDEBAR + MAIN APP AREA)
+   ========================================================================== */
+.app-shell {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background-color: var(--bg-dark);
+}
+
+/* Main Area (Navbar + Content Viewport) */
+.app-main-area {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  position: relative;
+}
+
+/* Top Navbar */
+.portal-navbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.nav-hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-hamburger-btn:hover .hamburger-bar {
+  background-color: #ffffff;
+}
+
+.hamburger-bar {
+  height: 2px;
+  width: 18px;
+  background-color: var(--text-gray-400);
+  border-radius: 2px;
+  transition: background-color 0.15s;
+}
+
+.nav-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-icon-btn {
+  color: var(--text-gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.nav-icon-btn:hover {
+  color: var(--text-white);
+}
+
+.nav-user-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.user-initials-square {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: #27272c;
+  border: 1px solid #3f3f46;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   OFFICIAL MYBHU SIDEBAR (EXACT MATCH TO NEW SCREENSHOT)
+   ========================================================================== */
+.portal-sidebar {
+  width: 255px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem 1rem;
+  flex-shrink: 0;
+  overflow-y: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), margin-left 0.25s ease, opacity 0.25s ease;
+  z-index: 40;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) transparent;
+}
+
+.portal-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.portal-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.portal-sidebar::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+
+.portal-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--tree-line-color);
+}
+
+/* Desktop Collapsed state */
+.portal-sidebar.collapsed {
+  margin-left: -255px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Mobile & Tablet Drawer state (default off-screen, open with .mobile-open) */
+@media (max-width: 1024px) {
+  .portal-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: 275px;
+    max-width: 85vw;
+    box-shadow: 10px 0 35px rgba(0, 0, 0, 0.85);
+    z-index: 100;
+    transform: translateX(-100%);
+    margin-left: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .portal-sidebar.mobile-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .portal-sidebar.collapsed {
+    margin-left: 0;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 90;
+  transition: opacity 0.25s ease;
+}
+
+.sidebar-backdrop.hidden {
+  display: none;
+}
+
+/* Sidebar Brand Header */
+.sidebar-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.25rem;
+}
+
+.brand-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar-close-btn {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-card-subtle);
+  color: var(--text-gray-400);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.sidebar-close-btn:hover {
+  background-color: var(--bg-card-hover);
+  color: var(--text-white);
+}
+
+@media (max-width: 1024px) {
+  .sidebar-close-btn {
+    display: inline-flex;
+  }
+}
+
+.brand-m-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 800;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-m-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+/* Golden Session Pill */
+.sidebar-session-gold-badge {
+  background-color: var(--gold-session-bg);
+  border: 1px solid var(--gold-session-border);
+  color: var(--gold-session-text);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-sm);
+  margin: 1.25rem 0 1rem 0;
+  cursor: default;
+}
+
+/* Sidebar Navigation Items */
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Dashboard Active Item */
+.sidebar-nav-item-active {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  background-color: var(--purple-active-bg);
+  color: var(--purple-active-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sidebar-nav-item-active:hover {
+  background-color: #361f52;
+}
+
+/* Collapsible Section Header */
+.sidebar-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  color: var(--text-gray-100);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.sidebar-group-header:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+
+.group-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.group-chevron-icon {
+  color: var(--text-gray-400);
+  transition: transform 0.2s ease;
+}
+
+.sidebar-group.open .group-chevron-icon {
+  transform: rotate(0deg);
+}
+
+.sidebar-group.closed .group-chevron-icon {
+  transform: rotate(-90deg);
+}
+
+.sidebar-group.closed .sidebar-tree-menu {
+  display: none;
+}
+
+/* Tree Line Sub-Menu */
+.sidebar-tree-menu {
+  margin-left: 1.4rem;
+  border-left: 1px solid var(--tree-line-color);
+  padding-left: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.sidebar-sub-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-gray-300);
+  transition: all 0.15s;
+}
+
+.sidebar-sub-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-sub-link.active-sub {
+  color: var(--purple-primary);
+  font-weight: 700;
+}
+
+/* Regular Sidebar Link */
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  color: var(--text-gray-100);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sidebar-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   CONTENT VIEWPORT (MIDDLE PAYMENTS PANE + RIGHT PROFILE PANE)
+   ========================================================================== */
+.content-viewport {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.75rem;
+  overflow-y: auto;
+}
+
+@media (max-width: 1200px) {
+  .content-viewport {
+    grid-template-columns: 1fr;
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   PAYMENTS MAIN CONTENT (EXACT MATCH TO SCREENSHOT)
+   ========================================================================== */
+.payments-main-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Alert Banner */
+.alert-blue-box {
+  background-color: var(--blue-alert-bg);
+  border: 1px solid var(--blue-alert-border);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.25rem;
+  position: relative;
+}
+
+.alert-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.alert-icon-circle {
+  color: var(--blue-alert-text);
+  margin-top: 2px;
+}
+
+.alert-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #93c5fd;
+  display: block;
+}
+
+.alert-text-body {
+  font-size: 0.8rem;
+  color: #bfdbfe;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+.alert-text-body strong {
+  color: #ffffff;
+}
+
+.alert-subtext-faint {
+  font-size: 0.7rem;
+  color: #60a5fa;
+  opacity: 0.75;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.alert-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #93c5fd;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.alert-close-btn:hover {
+  opacity: 1;
+}
+
+/* Heading Row */
+.payments-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.payments-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+}
+
+.payments-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.btn-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.btn-pill-dark:hover {
+  background-color: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+/* 3 Stacked Summary Cards */
+.kpi-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.summary-pill-card {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.summary-pill-card:hover {
+  border-color: var(--border-subtle);
+  transform: translateY(-1px);
+}
+
+.card-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-circle-green {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: var(--green-status);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.icon-circle-purple {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: var(--purple-primary);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.icon-circle-red {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--red-status);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.card-content-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label-subtle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-gray-500);
+}
+
+.card-value-display {
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-family: var(--font-sans);
+  margin-top: 0.15rem;
+}
+
+.val-green { color: var(--green-status); }
+.val-white { color: var(--text-white); }
+.val-red { color: var(--red-status); }
+
+/* Session Navigation Tabs */
+.sessions-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.25rem;
+  margin-top: 0.5rem;
+  overflow-x: auto;
+}
+
+.session-tab-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-gray-400);
+  padding-bottom: 0.65rem;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.session-tab-link:hover {
+  color: var(--text-white);
+}
+
+.session-tab-link.active {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.session-tab-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--purple-primary);
+  border-radius: 2px;
+}
+
+/* Session Table Card */
+.session-table-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 1.25rem 1.5rem;
+}
+
+.table-top-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.pill-total-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+  color: var(--text-gray-400);
+}
+
+.pill-total-badge strong {
+  color: #ffffff;
+  font-family: var(--font-sans);
+}
+
+.payments-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.payments-data-table th {
+  padding: 0.65rem 0.75rem;
+  color: var(--text-white);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.payments-data-table td {
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid #27272c;
+  color: var(--text-gray-100);
+}
+
+.payments-data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.col-amount {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.col-rrr {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-gray-400);
+}
+
+/* Grand Total Row */
+.grand-total-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-gray-400);
+  margin-top: -0.25rem;
+}
+
+.grand-total-row strong {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+/* Outstanding Due Card */
+.due-breakdown-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.due-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.due-left-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-gray-100);
+  width: 110px;
+}
+
+.due-middle-badge {
+  flex: 1;
+}
+
+.badge-gold-pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--gold-badge-bg);
+  border: 1px solid var(--gold-badge-border);
+  color: var(--gold-badge-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.due-right-amount {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-white);
+  font-family: var(--font-sans);
+}
+
+/* ==========================================================================
+   RIGHT PROFILE & CALENDAR COLUMN
+   ========================================================================== */
+.right-sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.student-profile-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-avatar-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: var(--radius-full);
+  background-color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.avatar-silhouette-svg {
+  width: 65px;
+  height: 65px;
+  color: #64748b;
+  margin-top: 10px;
+}
+
+.profile-student-name {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-white);
+  letter-spacing: -0.01em;
+}
+
+.profile-matric-no {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7dd3fc;
+  font-family: var(--font-sans);
+  margin-top: 0.15rem;
+}
+
+.profile-email-sub {
+  font-size: 0.75rem;
+  color: var(--text-gray-500);
+  margin-top: 0.15rem;
+}
+
+.profile-meta-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid #27272c;
+  padding-top: 1.25rem;
+  text-align: left;
+}
+
+.profile-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.meta-key {
+  color: var(--text-gray-400);
+  font-weight: 500;
+}
+
+.meta-val-text {
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.badge-insufficient {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background-color: #451a1a;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.badge-cleared-green {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background-color: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #6ee7b7;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.btn-purple-full {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background-color: var(--purple-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.15s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+
+.btn-purple-full:hover {
+  background-color: var(--purple-dark);
+}
+
+.btn-purple-full:active {
+  transform: translateY(1px);
+}
+
+.course-portal-link {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--purple-primary);
+  transition: color 0.15s;
+}
+
+.course-portal-link:hover {
+  color: #c084fc;
+  text-decoration: underline;
+}
+
+/* Calendar Card */
+.calendar-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.calendar-header-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 1.25rem;
+}
+
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.calendar-weekday {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-gray-400);
+  padding-bottom: 0.75rem;
+}
+
+.calendar-day-cell {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-gray-100);
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.calendar-day-cell:hover:not(.empty-day):not(.selected-day) {
+  background-color: var(--bg-card-subtle);
+}
+
+.calendar-day-cell.faint-day {
+  color: #52525b;
+}
+
+.calendar-day-cell.selected-day {
+  background-color: var(--purple-primary);
+  color: #ffffff;
+  font-weight: 800;
+  border-radius: 8px;
+}
+
+.day-dot-indicator {
+  width: 4px;
+  height: 4px;
+  background-color: #000000;
+  border-radius: var(--radius-full);
+  margin-top: 1px;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 100;
+}
+
+.modal-dialog {
+  background-color: #1e1e24;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ==========================================================================
+   PAYMENT SCHEDULE VIEW (EXACT MATCH TO USER SCREENSHOT)
+   ========================================================================== */
+.payment-schedule-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* When payment schedule is active, use full-width (no right column) */
+.content-viewport.schedule-active {
+  grid-template-columns: 1fr;
+}
+
+.content-viewport.schedule-active .right-sidebar-column {
+  display: none;
+}
+
+/* Amber Outstanding Alert */
+.alert-amber-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background-color: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  color: #fde68a;
+  line-height: 1.5;
+}
+
+.alert-amber-box strong {
+  color: #fbbf24;
+}
+
+/* Current Session Total Payable Row */
+.schedule-total-payable-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.schedule-total-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-gray-300);
+}
+
+.schedule-total-amount {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--green-status);
+  font-family: var(--font-sans);
+}
+
+/* Schedule Table Header */
+.schedule-table-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.schedule-session-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.schedule-session-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-gray-400);
+  margin-top: 0.2rem;
+}
+
+/* Fee Type Badge */
+.fee-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-type-other {
+  background-color: rgba(251, 191, 36, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  color: #fbbf24;
+}
+
+.badge-type-tuition {
+  background-color: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: var(--purple-primary);
+}
+
+.col-level {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-gray-300);
+}
+
+.col-date {
+  font-size: 0.75rem;
+  color: var(--text-gray-400);
+  font-family: var(--font-mono);
+}
+
+.schedule-fee-table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN — FULL MOBILE / TABLET / DESKTOP BREAKPOINTS
+   ========================================================================== */
+
+/* ── TABLET (≤ 1024px): Sidebar overlay, single column, right column stacks ── */
+@media (max-width: 1024px) {
+  .content-viewport {
+    grid-template-columns: 1fr;
+    padding: 1.25rem 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .right-sidebar-column {
+    order: 2;
+  }
+
+  .payments-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .payments-action-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .due-row-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .due-middle-badge {
+    order: 3;
+    width: 100%;
+  }
+
+  .schedule-total-payable-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+/* ── SMALL TABLET / LARGE PHONE (≤ 768px): Compact everything ── */
+@media (max-width: 768px) {
+  .portal-navbar {
+    padding: 0 1rem;
+    height: 52px;
+  }
+
+  .nav-actions-right {
+    gap: 0.85rem;
+  }
+
+  .content-viewport {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .payments-title {
+    font-size: 1.35rem;
+  }
+
+  .payments-action-buttons {
+    gap: 0.5rem;
+  }
+
+  .btn-pill-dark {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.75rem;
+  }
+
+  /* KPI Cards Stack */
+  .kpi-cards-stack {
+    gap: 0.65rem;
+  }
+
+  .summary-pill-card {
+    padding: 0.85rem 1rem;
+    gap: 0.85rem;
+  }
+
+  .card-icon-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .card-value-display {
+    font-size: 1rem;
+  }
+
+  /* Session Tabs — scroll horizontally */
+  .sessions-nav-row {
+    gap: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .sessions-nav-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .session-tab-link {
+    font-size: 0.8rem;
+  }
+
+  /* Tables — horizontal scroll wrapper */
+  .session-table-card {
+    padding: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .payments-data-table {
+    min-width: 480px;
+  }
+
+  .schedule-fee-table {
+    min-width: 600px;
+  }
+
+  /* Profile Card */
+  .student-profile-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .profile-avatar-circle {
+    width: 72px;
+    height: 72px;
+  }
+
+  .avatar-silhouette-svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  .profile-student-name {
+    font-size: 0.9rem;
+  }
+
+  /* Calendar */
+  .calendar-card {
+    padding: 1.15rem;
+  }
+
+  .calendar-day-cell {
+    font-size: 0.7rem;
+  }
+
+  /* Due Card */
+  .due-breakdown-card {
+    padding: 1rem;
+  }
+
+  /* Alert */
+  .alert-blue-box {
+    padding: 0.85rem 1rem;
+  }
+
+  .alert-text-body {
+    font-size: 0.75rem;
+  }
+
+  /* Schedule View */
+  .alert-amber-box {
+    padding: 0.85rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .schedule-total-amount {
+    font-size: 1rem;
+  }
+
+  .schedule-table-header-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+/* ── MOBILE (≤ 480px): Full mobile optimization ── */
+@media (max-width: 480px) {
+  .portal-navbar {
+    padding: 0 0.75rem;
+    height: 48px;
+  }
+
+  .nav-actions-right {
+    gap: 0.65rem;
+  }
+
+  .user-initials-square {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+  }
+
+  .content-viewport {
+    padding: 0.75rem;
+    gap: 0.85rem;
+  }
+
+  .payments-title {
+    font-size: 1.15rem;
+  }
+
+  .payments-action-buttons {
+    width: 100%;
+  }
+
+  .btn-pill-dark {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  /* KPI Cards */
+  .summary-pill-card {
+    padding: 0.75rem 0.85rem;
+    gap: 0.75rem;
+  }
+
+  .card-icon-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+
+  .card-icon-circle .icon-md {
+    width: 15px;
+    height: 15px;
+  }
+
+  .card-label-subtle {
+    font-size: 0.6rem;
+  }
+
+  .card-value-display {
+    font-size: 0.9rem;
+  }
+
+  /* Session Tabs */
+  .sessions-nav-row {
+    gap: 0.75rem;
+  }
+
+  .session-tab-link {
+    font-size: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Table Card */
+  .session-table-card {
+    padding: 0.75rem;
+  }
+
+  .pill-total-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .payments-data-table th,
+  .payments-data-table td {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  /* Grand Total */
+  .grand-total-row {
+    font-size: 0.75rem;
+  }
+
+  .grand-total-row strong {
+    font-size: 0.8rem;
+  }
+
+  /* Due Card */
+  .due-breakdown-card {
+    padding: 0.85rem;
+    gap: 0.75rem;
+  }
+
+  .due-left-label {
+    font-size: 0.75rem;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .due-right-amount {
+    font-size: 0.8rem;
+  }
+
+  .badge-gold-pill {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  /* Profile */
+  .profile-avatar-circle {
+    width: 64px;
+    height: 64px;
+  }
+
+  .avatar-silhouette-svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .profile-student-name {
+    font-size: 0.85rem;
+  }
+
+  .profile-matric-no {
+    font-size: 0.75rem;
+  }
+
+  .profile-email-sub {
+    font-size: 0.7rem;
+  }
+
+  .profile-meta-row {
+    font-size: 0.7rem;
+  }
+
+  .btn-purple-full {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  /* Calendar */
+  .calendar-card {
+    padding: 1rem;
+  }
+
+  .calendar-header-title {
+    font-size: 0.8rem;
+  }
+
+  .calendar-day-cell {
+    font-size: 0.65rem;
+  }
+
+  .calendar-weekday {
+    font-size: 0.6rem;
+  }
+
+  /* Alert */
+  .alert-blue-box {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .alert-title {
+    font-size: 0.8rem;
+  }
+
+  .alert-text-body {
+    font-size: 0.7rem;
+  }
+
+  .alert-subtext-faint {
+    font-size: 0.6rem;
+  }
+
+  /* Modal */
+  .modal-dialog {
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Schedule View */
+  .alert-amber-box {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.75rem;
+  }
+
+  .schedule-total-label {
+    font-size: 0.8rem;
+  }
+
+  .schedule-total-amount {
+    font-size: 0.95rem;
+  }
+
+  .schedule-session-title {
+    font-size: 0.85rem;
+  }
+
+  .fee-type-badge {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.45rem;
+  }
+}
+
+/* ── Table Horizontal Scroll Wrapper & Overflow Guards ── */
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-card-subtle);
+  border-radius: 4px;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app-main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.content-viewport {
+  max-width: 100%;
+}
+
+/* ── Mobile Due breakdown & Profile details ── */
+@media (max-width: 600px) {
+  .due-row-item {
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .due-row-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .due-left-label {
+    width: auto;
+    font-size: 0.75rem;
+  }
+
+  .due-right-amount {
+    margin-left: auto;
+    font-size: 0.85rem;
+  }
+
+  .due-middle-badge {
+    width: 100%;
+    order: 3;
+  }
+
+  .badge-gold-pill {
+    font-size: 0.62rem;
+    white-space: normal;
+  }
+
+  .profile-meta-row {
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+  }
+
+  .meta-val-text {
+    word-break: break-all;
+  }
+
+  .badge-insufficient {
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+}
+
+/* ==========================================================================
+   REMITA CHECKOUT & RECEIPT SIMULATOR STYLES
+   ========================================================================== */
+.schedule-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-remita-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  box-shadow: 0 3px 10px rgba(249, 115, 22, 0.3);
+  transition: all 0.18s ease;
+  cursor: pointer;
+}
+
+.btn-remita-trigger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(249, 115, 22, 0.45);
+  background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+}
+
+.remita-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: inline-block;
+  animation: remitaPulse 1.8s infinite;
+}
+
+@keyframes remitaPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Remita Modal Card */
+.remita-checkout-card {
+  background-color: #161619;
+  border: 1px solid #2e2e34;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(249, 115, 22, 0.2);
+  overflow: hidden;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  animation: modalScaleIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.remita-header-bar {
+  background-color: #101012;
+  border-bottom: 1px solid #27272c;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remita-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.remita-logo-badge {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.remita-text-re {
+  color: #f97316;
+}
+
+.remita-text-mita {
+  color: #ffffff;
+}
+
+.remita-sandbox-tag {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background-color: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.remita-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-card-subtle);
+  color: var(--text-gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.remita-close-btn:hover {
+  background-color: var(--bg-card-hover);
+  color: var(--text-white);
+}
+
+.remita-body-view {
+  overflow-y: auto;
+  padding-bottom: 1.25rem;
+}
+
+/* Summary Strip */
+.remita-summary-strip {
+  background-color: #1d1d22;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #27272c;
+  gap: 1rem;
+}
+
+.remita-strip-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.remita-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.remita-val-biller {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.remita-rrr-copy-box {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.remita-rrr-copy-box strong {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: #f97316;
+}
+
+.btn-copy-rrr {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-gray-300);
+  cursor: pointer;
+}
+
+.btn-copy-rrr:hover {
+  color: #ffffff;
+}
+
+/* Amount Banner */
+.remita-amount-banner {
+  background: linear-gradient(135deg, #1b1b22 0%, #181520 100%);
+  border-bottom: 1px solid #27272c;
+  padding: 0.95rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.remita-desc-line {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.remita-payer-sub {
+  font-size: 0.7rem;
+  color: var(--text-gray-400);
+  margin-top: 0.15rem;
+}
+
+.remita-amount-total {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #22c55e;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+.remita-curr {
+  font-size: 0.95rem;
+  margin-right: 2px;
+}
+
+.remita-kobo {
+  font-size: 0.8rem;
+  color: var(--text-gray-400);
+}
+
+/* Tabs */
+.remita-channels-tabs {
+  display: flex;
+  border-bottom: 1px solid #27272c;
+  background-color: #121214;
+}
+
+.remita-tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-gray-400);
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.remita-tab-btn:hover {
+  color: var(--text-white);
+}
+
+.remita-tab-btn.active {
+  color: #f97316;
+  font-weight: 700;
+  border-bottom-color: #f97316;
+  background-color: rgba(249, 115, 22, 0.05);
+}
+
+/* Channel Content */
+.remita-channel-content {
+  padding: 1.25rem;
+}
+
+.remita-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+
+.remita-field-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.remita-input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.remita-input {
+  width: 100%;
+  background-color: #212127;
+  border: 1px solid #33333b;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.remita-input:focus {
+  border-color: #f97316;
+}
+
+.card-brand-pill {
+  position: absolute;
+  right: 0.65rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background-color: #ea580c;
+  color: #ffffff;
+}
+
+.remita-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.remita-fee-breakdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-gray-400);
+  padding: 0.6rem 0;
+  border-top: 1px solid #27272c;
+  border-bottom: 1px solid #27272c;
+  margin-bottom: 1rem;
+}
+
+.remita-fee-breakdown strong {
+  color: #ffffff;
+}
+
+.remita-btn-pay {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+  transition: all 0.18s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remita-btn-pay:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.55);
+}
+
+.remita-secure-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  color: var(--text-gray-500);
+  margin-top: 0.85rem;
+  text-align: center;
+}
+
+/* Bank Box */
+.remita-bank-box {
+  background-color: #202026;
+  border: 1px solid #303038;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.remita-bank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.remita-bank-row .text-sub {
+  color: var(--text-gray-400);
+}
+
+/* USSD Box */
+.remita-ussd-code-box {
+  background-color: #202026;
+  border: 1px solid #303038;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ussd-dial-display {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #f97316;
+  background-color: #141416;
+  padding: 0.65rem;
+  border-radius: 8px;
+  border: 1px dashed rgba(249, 115, 22, 0.4);
+}
+
+/* Receipt View */
+.remita-receipt-content {
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+
+.remita-success-checkmark {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(34, 197, 94, 0.15);
+  border: 2px solid #22c55e;
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem auto;
+  animation: popIn 0.35s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.4); opacity: 0; }
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.remita-receipt-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.remita-receipt-sub {
+  font-size: 0.75rem;
+  color: var(--text-gray-400);
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.remita-receipt-card {
+  background-color: #202026;
+  border: 1px solid #303038;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.receipt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  border-bottom: 1px solid #292932;
+  padding-bottom: 0.45rem;
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.receipt-row span {
+  color: var(--text-gray-400);
+}
+
+.receipt-row strong {
+  color: #ffffff;
+}
+
+.remita-receipt-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-remita-print {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-remita-print:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.btn-remita-update-portal {
+  flex: 1.5;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.35);
+  transition: all 0.15s;
+}
+
+.btn-remita-update-portal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.45);
+}

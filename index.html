@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bingham University Undergraduate Portal | Payments</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- OFFICIAL MYBHU COLLAPSIBLE SIDEBAR (MATCHES SCREENSHOT EXACTLY) -->
+    <aside class="portal-sidebar" id="portal-sidebar" aria-label="Portal Navigation">
+      <!-- Brand row: M circle + MyBHU with mobile close button -->
+      <div class="sidebar-brand-row">
+        <div class="brand-title-wrap">
+          <div class="brand-m-circle">M</div>
+          <span class="brand-m-text">MyBHU</span>
+        </div>
+        <button class="sidebar-close-btn" id="btn-close-sidebar" aria-label="Close navigation sidebar">
+          <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Gold Session Badge -->
+      <div class="sidebar-session-gold-badge">2026/2027 SESSION</div>
+
+      <!-- Navigation Tree -->
+      <nav class="sidebar-nav-list">
+        
+        <!-- Active Item: Dashboard -->
+        <a href="#dashboard" class="sidebar-nav-item-active" id="nav-item-dashboard">
+          <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Group 1: Fees & Payments (Collapsible, open by default) -->
+        <div class="sidebar-group open" id="group-fees-payments">
+          <div class="sidebar-group-header" data-toggle="group-fees-payments">
+            <div class="group-header-left">
+              <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span>Fees &amp; Payments</span>
+            </div>
+            <svg class="icon-xs group-chevron-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+
+          <!-- Tree Menu -->
+          <div class="sidebar-tree-menu">
+            <a href="#wallet" class="sidebar-sub-link" id="nav-sub-wallet">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+              </svg>
+              <span>My Wallet</span>
+            </a>
+            <a href="#refund-requests" class="sidebar-sub-link" id="nav-sub-refund">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a5 5 0 015 5v2m-15-7l4-4m-4 4l4 4" />
+              </svg>
+              <span>Wallet Refund Requests</span>
+            </a>
+            <a href="#payment-schedule" class="sidebar-sub-link" id="nav-sub-schedule">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>Payment Schedule</span>
+            </a>
+            <a href="#my-payments" class="sidebar-sub-link active-sub" id="nav-sub-payments">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span>My Payments</span>
+            </a>
+            <a href="#transactions" class="sidebar-sub-link" id="nav-sub-transactions">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+              <span>Transactions</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group 2: Academics (Collapsible, open by default) -->
+        <div class="sidebar-group open" id="group-academics">
+          <div class="sidebar-group-header" data-toggle="group-academics">
+            <div class="group-header-left">
+              <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14v7" />
+              </svg>
+              <span>Academics</span>
+            </div>
+            <svg class="icon-xs group-chevron-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+
+          <!-- Tree Menu -->
+          <div class="sidebar-tree-menu">
+            <a href="#eligibility" class="sidebar-sub-link" id="nav-sub-eligibility">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Examination Eligibility</span>
+            </a>
+            <a href="#results" class="sidebar-sub-link" id="nav-sub-results">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span>Results</span>
+            </a>
+            <a href="#transcript" class="sidebar-sub-link" id="nav-sub-transcript">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 9h1m-1 4h6m-6 4h6" />
+              </svg>
+              <span>Academic Transcript</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 3: Accommodation -->
+        <a href="#accommodation" class="sidebar-nav-link" id="nav-item-accommodation">
+          <div class="group-header-left">
+            <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            <span>Accommodation</span>
+          </div>
+          <svg class="icon-xs" style="color: var(--text-gray-400);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+
+        <!-- Item 4: Notifications -->
+        <a href="#notifications" class="sidebar-nav-link" id="nav-item-notifications">
+          <div class="group-header-left">
+            <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+            <span>Notifications</span>
+          </div>
+        </a>
+
+      </nav>
+    </aside>
+
+    <!-- Mobile Overlay Backdrop -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>
+
+    <!-- MAIN APP AREA -->
+    <div class="app-main-area">
+
+      <!-- Top Navbar -->
+      <header class="portal-navbar">
+        <!-- Hamburger button -->
+        <button class="nav-hamburger-btn" id="btn-hamburger" aria-label="Toggle menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <!-- Right icons & User badge -->
+        <div class="nav-actions-right">
+          <!-- Search icon -->
+          <button class="nav-icon-btn" id="btn-search" aria-label="Search">
+            <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+
+          <!-- Moon icon -->
+          <button class="nav-icon-btn" id="btn-moon" aria-label="Theme toggle">
+            <svg class="icon-md" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+            </svg>
+          </button>
+
+          <!-- User Initials Avatar CJ -->
+          <div class="nav-user-badge" id="btn-user-badge">
+            <div class="user-initials-square">CJ</div>
+            <svg class="icon-xs" style="color: var(--text-gray-400);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content Viewport -->
+      <main class="content-viewport">
+        
+        <!-- PAYMENTS MAIN PANE -->
+        <section class="payments-main-pane">
+          
+          <!-- Blue Alert Box: School Fees Review -->
+          <div class="alert-blue-box" id="fees-alert-box">
+            <button class="alert-close-btn" id="btn-close-alert" aria-label="Close notification">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div class="alert-header">
+              <svg class="icon-md alert-icon-circle" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <strong class="alert-title">School Fees Review</strong>
+                <p class="alert-text-body">
+                  The Management of Bingham University has reviewed its fees for <strong>2026/2027</strong> Academic Session. This is due to <strong>inflationary trend</strong> and the resultant increase in cost of running the University.
+                </p>
+                <span class="alert-subtext-faint">Valid until Aug 31, 2027</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payments Heading & Action Buttons -->
+          <div class="payments-heading-row">
+            <h1 class="payments-title">Payments</h1>
+            <div class="payments-action-buttons">
+              <button class="btn-pill-dark" id="btn-download-handbook">
+                <span>Download Handbook</span>
+              </button>
+              <button class="btn-pill-dark" id="btn-new-transaction">
+                <span style="font-size: 1rem; line-height: 1;">+</span>
+                <span>New Transaction</span>
+              </button>
+              <button class="btn-pill-dark" id="btn-fund-wallet">
+                <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+                <span>Fund My Wallet</span>
+              </button>
+            </div>
+          </div>
+
+      <!-- 3 Summary KPI Cards -->
+      <div class="kpi-cards-stack">
+        
+        <!-- Card 1: Total Tuition Paid -->
+        <div class="summary-pill-card">
+          <div class="card-icon-circle icon-circle-green">
+            <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="card-content-box">
+            <span class="card-label-subtle">Total Tuition Paid</span>
+            <span class="card-value-display val-green" id="kpi-tuition-paid">₦0</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Total Tuition Payable -->
+        <div class="summary-pill-card">
+          <div class="card-icon-circle icon-circle-purple">
+            <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <div class="card-content-box">
+            <span class="card-label-subtle">Total Tuition Payable</span>
+            <span class="card-value-display val-white" id="kpi-tuition-payable">₦2,860,000</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Tuition Balance -->
+        <div class="summary-pill-card">
+          <div class="card-icon-circle icon-circle-red" id="kpi-balance-icon">
+            <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div class="card-content-box">
+            <span class="card-label-subtle">Tuition Balance</span>
+            <span class="card-value-display val-red" id="kpi-tuition-balance">₦2,860,000</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Session Navigation Tabs -->
+      <div class="sessions-nav-row" id="sessions-nav">
+        <span class="session-tab-link active" data-session="2025/2026">2025/2026 Session</span>
+        <span class="session-tab-link" data-session="2024/2025">2024/2025 Session</span>
+        <span class="session-tab-link" data-session="2023/2024">2023/2024 Session</span>
+        <span class="session-tab-link" data-session="2022/2023">2022/2023 Session</span>
+      </div>
+
+      <!-- Session Table Card -->
+      <div class="session-table-card">
+        <div class="table-top-bar">
+          <div class="pill-total-badge">
+            <span>Total:</span>
+            <strong>₦1,815,000</strong>
+          </div>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="payments-data-table">
+            <thead>
+              <tr>
+                <th style="width: 45%;">Type</th>
+                <th style="width: 25%;">Amount</th>
+                <th style="width: 30%;">RRR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 600;">Tuition Fee + Other Charges</td>
+                <td class="col-amount">₦900,000</td>
+                <td class="col-rrr">3213-7591-16...</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Tuition Fee + Other Charges</td>
+                <td class="col-amount">₦900,000</td>
+                <td class="col-rrr">1413-7588-36...</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Health Services</td>
+                <td class="col-amount">₦15,000</td>
+                <td class="col-rrr">2213-7587-99...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grand Total Row -->
+      <div class="grand-total-row">
+        <span>Grand Total (All Sessions):</span>
+        <strong>₦7,365,000</strong>
+      </div>
+
+      <!-- Outstanding Due Card -->
+      <div class="due-breakdown-card">
+        
+        <!-- Row 1: 50% Fee Due -->
+        <div class="due-row-item">
+          <div class="due-left-label">50% Fee Due</div>
+          <div class="due-middle-badge">
+            <span class="badge-gold-pill">Previous Outstanding Amount Added</span>
+          </div>
+          <div class="due-right-amount" id="due-amount-50">₦1,430,000</div>
+        </div>
+
+        <!-- Row 2: Full Fee Due -->
+        <div class="due-row-item">
+          <div class="due-left-label">Full Fee Due</div>
+          <div class="due-middle-badge">
+            <span class="badge-gold-pill">Previous Outstanding Amount Added</span>
+          </div>
+          <div class="due-right-amount" id="due-amount-full">₦2,860,000</div>
+        </div>
+
+        <!-- Row 3: Total Paid -->
+        <div class="due-row-item">
+          <div class="due-left-label">Total Paid</div>
+          <div class="due-middle-badge"></div>
+          <div class="due-right-amount" id="due-amount-paid">₦0</div>
+        </div>
+
+        <!-- Row 4: Remita Pay Action -->
+        <div class="due-action-row" style="margin-top: 0.5rem; display: flex; justify-content: flex-end;">
+          <button class="btn-remita-trigger" id="btn-due-pay-remita">
+            <span class="remita-dot"></span>
+            <span>Pay Fees via Remita</span>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PAYMENT SCHEDULE VIEW (Hidden by default, toggled via sidebar)
+         ============================================================ -->
+    <section class="payment-schedule-pane hidden" id="view-payment-schedule">
+      
+      <!-- Blue Alert Box: Same School Fees Review -->
+      <div class="alert-blue-box" id="fees-alert-box-schedule">
+        <button class="alert-close-btn" aria-label="Close notification" onclick="this.closest('.alert-blue-box').remove()">
+          <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <div class="alert-header">
+          <svg class="icon-md alert-icon-circle" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+          <div>
+            <strong class="alert-title">School Fees Review</strong>
+            <p class="alert-text-body">
+              The Management of Bingham University has reviewed its fees for <strong>2026/2027</strong> Academic Session. This is due to <strong>inflationary trend</strong> and the resultant increase in cost of running the University.
+            </p>
+            <span class="alert-subtext-faint">Valid until Aug 31, 2027</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Heading -->
+      <h1 class="payments-title">Payment Schedule</h1>
+
+      <!-- Amber Outstanding Alert -->
+      <div class="alert-amber-box">
+        <svg class="icon-md" fill="currentColor" viewBox="0 0 20 20" style="color: #fbbf24; flex-shrink: 0;">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+        <span>Outstanding amount of <strong>₦230,000</strong> from a previous session has been added to your current fees.</span>
+      </div>
+
+      <!-- Current Session Total Payable Row -->
+      <div class="schedule-total-payable-row">
+        <span class="schedule-total-label">Current Session Total Payable</span>
+        <span class="schedule-total-amount" id="schedule-total-display">₦2,860,000</span>
+      </div>
+
+      <!-- Session Navigation Tabs (Schedule View) -->
+      <div class="sessions-nav-row" id="schedule-sessions-nav">
+        <span class="session-tab-link active" data-session="2026/2027">2026/2027</span>
+        <span class="session-tab-link" data-session="2025/2026">2025/2026</span>
+        <span class="session-tab-link" data-session="2024/2025">2024/2025</span>
+        <span class="session-tab-link" data-session="2023/2024">2023/2024</span>
+        <span class="session-tab-link" data-session="2022/2023">2022/2023</span>
+      </div>
+
+      <!-- Fee Schedule Table Card -->
+      <div class="session-table-card">
+        <!-- Card Header -->
+        <div class="schedule-table-header-row">
+          <div>
+            <div class="schedule-session-title">2026/2027 Academic Session</div>
+            <div class="schedule-session-subtitle">500 Level</div>
+          </div>
+          <div class="schedule-header-actions">
+            <div class="pill-total-badge">
+              <span>Total:</span>
+              <strong>₦2,860,000</strong>
+            </div>
+            <button class="btn-remita-trigger" id="btn-schedule-pay-remita">
+              <span class="remita-dot"></span>
+              <span>Pay with Remita</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Fee Items Table -->
+        <div class="table-responsive-wrapper">
+          <table class="payments-data-table schedule-fee-table">
+            <thead>
+              <tr>
+                <th style="width: 30%;">Fee Item</th>
+                <th style="width: 20%;">Type</th>
+                <th style="width: 15%;">Level</th>
+                <th style="width: 18%;">Amount</th>
+                <th style="width: 17%;">Date Added</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 600;">Development Levy</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦150,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Entrepreneur Fees</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦70,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Examination Fees</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦80,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Games</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦35,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">ICT Services</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦50,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Library Services</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦30,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Maintenance Fees</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦50,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Registration Charges</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦35,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Studio/laboratory Charges</td>
+                <td><span class="fee-type-badge badge-type-other">Other Charges</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦100,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Tuition Fee</td>
+                <td><span class="fee-type-badge badge-type-tuition">Tuition Fee</span></td>
+                <td class="col-level">500 Level</td>
+                <td class="col-amount">₦2,260,000</td>
+                <td class="col-date">07 Sep 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT SIDEBAR COLUMN -->
+    <aside class="right-sidebar-column">
+      
+      <!-- Profile Card -->
+      <div class="student-profile-card">
+        <!-- Avatar Silhouette Circle -->
+        <div class="profile-avatar-circle">
+          <svg class="avatar-silhouette-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z" />
+          </svg>
+        </div>
+
+        <h2 class="profile-student-name">CHINONSO JOHN PAUL ALADI</h2>
+        <div class="profile-matric-no">BHU/22/01/05/0040</div>
+        <div class="profile-email-sub">bykebayo@gmail.com</div>
+
+        <!-- Metadata List -->
+        <div class="profile-meta-list">
+          
+          <div class="profile-meta-row">
+            <span class="meta-key">Payment Status</span>
+            <span class="badge-insufficient">
+              <span>Insufficient Payment</span>
+              <svg class="icon-xs" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </div>
+
+          <div class="profile-meta-row">
+            <span class="meta-key">Academic Clearance</span>
+            <span class="badge-cleared-green">Cleared</span>
+          </div>
+
+          <div class="profile-meta-row">
+            <span class="meta-key">Phone</span>
+            <span class="meta-val-text font-mono">09162235127</span>
+          </div>
+
+          <div class="profile-meta-row">
+            <span class="meta-key">Gender</span>
+            <span class="meta-val-text">Male</span>
+          </div>
+
+        </div>
+
+        <!-- Edit Profile Button -->
+        <button class="btn-purple-full" id="btn-edit-profile">Edit Profile</button>
+
+        <!-- Course Registration Link -->
+        <a href="#course-registration" class="course-portal-link" id="btn-course-reg-portal">
+          Course Registration Portal
+        </a>
+      </div>
+
+      <!-- Calendar Card -->
+      <div class="calendar-card">
+        <div class="calendar-header-title">October 2026</div>
+        
+        <div class="calendar-days-grid">
+          <!-- Weekday Labels -->
+          <span class="calendar-weekday">Su</span>
+          <span class="calendar-weekday">Mo</span>
+          <span class="calendar-weekday">Tu</span>
+          <span class="calendar-weekday">We</span>
+          <span class="calendar-weekday">Th</span>
+          <span class="calendar-weekday">Fr</span>
+          <span class="calendar-weekday">Sa</span>
+
+          <!-- Week 1: 27, 28, 29, 30 (prev month), 1, 2, 3 -->
+          <div class="calendar-day-cell faint-day">27</div>
+          <div class="calendar-day-cell faint-day">28</div>
+          <div class="calendar-day-cell faint-day">29</div>
+          <div class="calendar-day-cell faint-day">30</div>
+          <div class="calendar-day-cell">1</div>
+          <div class="calendar-day-cell">2</div>
+          <div class="calendar-day-cell">3</div>
+
+          <!-- Week 2: 4, 5, 6, 7, 8, 9, 10 -->
+          <div class="calendar-day-cell">4</div>
+          <div class="calendar-day-cell">5</div>
+          <div class="calendar-day-cell">6</div>
+          <div class="calendar-day-cell">7</div>
+          <div class="calendar-day-cell">8</div>
+          <div class="calendar-day-cell">9</div>
+          <div class="calendar-day-cell">10</div>
+
+          <!-- Week 3: 11, 12, 13, 14, 15 (ACTIVE), 16, 17 -->
+          <div class="calendar-day-cell">11</div>
+          <div class="calendar-day-cell">12</div>
+          <div class="calendar-day-cell">13</div>
+          <div class="calendar-day-cell">14</div>
+          <div class="calendar-day-cell selected-day">
+            <span>15</span>
+            <span class="day-dot-indicator"></span>
+          </div>
+          <div class="calendar-day-cell">16</div>
+          <div class="calendar-day-cell">17</div>
+
+          <!-- Week 4: 18, 19, 20, 21, 22, 23, 24 -->
+          <div class="calendar-day-cell">18</div>
+          <div class="calendar-day-cell">19</div>
+          <div class="calendar-day-cell">20</div>
+          <div class="calendar-day-cell">21</div>
+          <div class="calendar-day-cell">22</div>
+          <div class="calendar-day-cell">23</div>
+          <div class="calendar-day-cell">24</div>
+
+          <!-- Week 5: 25, 26, 27, 28, 29, 30, 31 -->
+          <div class="calendar-day-cell">25</div>
+          <div class="calendar-day-cell">26</div>
+          <div class="calendar-day-cell">27</div>
+          <div class="calendar-day-cell">28</div>
+          <div class="calendar-day-cell">29</div>
+          <div class="calendar-day-cell">30</div>
+          <div class="calendar-day-cell">31</div>
+        </div>
+      </div>
+
+    </aside>
+
+      </main>
+
+    </div> <!-- .app-main-area -->
+
+  </div> <!-- .app-shell -->
+
+  <!-- MODAL: NEW TRANSACTION / FUND WALLET -->
+  <div id="modal-transaction" class="modal-overlay hidden">
+    <div class="modal-dialog">
+      <div class="modal-header-row">
+        <h3 class="modal-dialog-title" id="modal-title">New Transaction</h3>
+        <button class="btn-close-modal" style="color: var(--text-gray-400);">
+          <svg class="icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--text-gray-400); line-height: 1.6;">
+        <p>Select fee type to generate Remita Retrieval Reference (RRR) for Bingham University Bursary.</p>
+        <div style="margin: 1.25rem 0; display: flex; flex-direction: column; gap: 0.75rem;">
+          <label style="font-size: 0.75rem; color: var(--text-gray-400);">Payment Category</label>
+          <select id="select-payment-cat" style="background: #27272c; border: 1px solid var(--border-color); color: #fff; padding: 0.65rem 0.85rem; border-radius: 8px; font-size: 0.85rem;">
+            <option value="2860000">500 Level Tuition &amp; Charges (₦2,860,000.00)</option>
+            <option value="1430000">50% School Fees Part Payment (₦1,430,000.00)</option>
+            <option value="250000">Hostel Accommodation Levy (₦250,000.00)</option>
+            <option value="15000">Health Services &amp; Clinic (₦15,000.00)</option>
+            <option value="25000">ICT Portal Levy (₦25,000.00)</option>
+          </select>
+        </div>
+        <button class="btn-purple-full" id="btn-submit-payment" style="margin-top: 0.5rem;">Proceed to Remita Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       REMITA PAYMENT GATEWAY SIMULATION (CHECKOUT & RECEIPT MODAL)
+       ============================================================ -->
+  <div id="modal-remita-checkout" class="modal-overlay hidden" aria-modal="true" role="dialog">
+    <div class="remita-checkout-card">
+      
+      <!-- Top Remita Header -->
+      <div class="remita-header-bar">
+        <div class="remita-brand-logo">
+          <div class="remita-logo-badge">
+            <span class="remita-text-re">re</span><span class="remita-text-mita">mita</span>
+          </div>
+          <span class="remita-sandbox-tag">SECURE CHECKOUT</span>
+        </div>
+        <button class="remita-close-btn" id="btn-close-remita" aria-label="Close Remita checkout">
+          <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- VIEW 1: CHECKOUT FORM -->
+      <div id="remita-view-form" class="remita-body-view">
+        
+        <!-- Biller / RRR Info Strip -->
+        <div class="remita-summary-strip">
+          <div class="remita-strip-col">
+            <span class="remita-label">Beneficiary</span>
+            <span class="remita-val-biller">Bingham University</span>
+          </div>
+          <div class="remita-strip-col">
+            <span class="remita-label">Remita Retrieval Reference (RRR)</span>
+            <div class="remita-rrr-copy-box">
+              <strong id="remita-active-rrr">3213-7591-1654</strong>
+              <button type="button" class="btn-copy-rrr" id="btn-copy-rrr" title="Copy RRR">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amount Highlight -->
+        <div class="remita-amount-banner">
+          <div>
+            <div class="remita-desc-line" id="remita-payment-desc">500 Level Tuition &amp; Academic Charges (2026/2027)</div>
+            <div class="remita-payer-sub">Payer: <strong>CHINONSO JOHN PAUL ALADI</strong> (BHU/22/01/05/0040)</div>
+          </div>
+          <div class="remita-amount-total">
+            <span class="remita-curr">₦</span><span id="remita-display-amount">2,860,000</span><span class="remita-kobo">.00</span>
+          </div>
+        </div>
+
+        <!-- Payment Method Tabs -->
+        <div class="remita-channels-tabs">
+          <button class="remita-tab-btn active" data-channel="card">
+            <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+            </svg>
+            <span>Card</span>
+          </button>
+          <button class="remita-tab-btn" data-channel="transfer">
+            <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+            </svg>
+            <span>Bank Transfer</span>
+          </button>
+          <button class="remita-tab-btn" data-channel="ussd">
+            <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            <span>USSD</span>
+          </button>
+        </div>
+
+        <!-- Channel Pane: Card Form -->
+        <div id="remita-channel-card" class="remita-channel-content active">
+          <div class="remita-form-row">
+            <label class="remita-field-label">Card Number</label>
+            <div class="remita-input-with-icon">
+              <input type="text" class="remita-input" id="remita-card-num" value="5399 •••• •••• 4128" readonly />
+              <div class="card-brand-pill">MASTERCARD</div>
+            </div>
+          </div>
+
+          <div class="remita-form-grid-2">
+            <div class="remita-form-row">
+              <label class="remita-field-label">Expiry Date</label>
+              <input type="text" class="remita-input" id="remita-card-exp" value="09/28" readonly />
+            </div>
+            <div class="remita-form-row">
+              <label class="remita-field-label">CVV</label>
+              <input type="password" class="remita-input" id="remita-card-cvv" value="739" readonly />
+            </div>
+          </div>
+
+          <div class="remita-fee-breakdown">
+            <span>Service Charge: ₦161.25</span>
+            <span>Total Payable: <strong id="remita-total-payable-text">₦2,860,161.25</strong></span>
+          </div>
+
+          <!-- Pay Submit Button -->
+          <button class="remita-btn-pay" id="btn-remita-submit-pay">
+            <span id="remita-pay-btn-text">Pay ₦2,860,000.00 via Remita</span>
+          </button>
+          <div class="remita-secure-note">
+            <svg class="icon-xs" fill="currentColor" viewBox="0 0 20 20" style="color: #10b981;">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+            </svg>
+            <span>Verified by Remita (SystemSpecs) 256-bit Bank Encryption</span>
+          </div>
+        </div>
+
+        <!-- Channel Pane: Transfer -->
+        <div id="remita-channel-transfer" class="remita-channel-content hidden">
+          <div class="remita-bank-box">
+            <div class="remita-bank-row">
+              <span class="text-sub">Bank Name:</span>
+              <strong>Access Bank / Remita Gateway</strong>
+            </div>
+            <div class="remita-bank-row">
+              <span class="text-sub">Account / RRR:</span>
+              <strong style="color: #f97316;">3213-7591-1654</strong>
+            </div>
+            <div class="remita-bank-row">
+              <span class="text-sub">Beneficiary:</span>
+              <strong>Bingham University Bursary</strong>
+            </div>
+            <div class="remita-bank-row">
+              <span class="text-sub">Amount:</span>
+              <strong id="remita-transfer-amount">₦2,860,000.00</strong>
+            </div>
+          </div>
+          <button class="remita-btn-pay" id="btn-remita-transfer-confirm" style="margin-top: 1rem;">
+            I Have Transferred via Bank
+          </button>
+        </div>
+
+        <!-- Channel Pane: USSD -->
+        <div id="remita-channel-ussd" class="remita-channel-content hidden">
+          <div class="remita-ussd-code-box">
+            <div style="font-size: 0.8rem; color: var(--text-gray-400);">Dial this USSD string on your registered phone:</div>
+            <div class="ussd-dial-display">*737*50*321375911654#</div>
+            <div style="font-size: 0.75rem; color: #10b981;">GTBank / Zenith / UBA / FirstBank Supported</div>
+          </div>
+          <button class="remita-btn-pay" id="btn-remita-ussd-confirm" style="margin-top: 1rem;">
+            Confirm USSD Payment
+          </button>
+        </div>
+
+      </div>
+
+      <!-- VIEW 2: SUCCESS RECEIPT -->
+      <div id="remita-view-receipt" class="remita-body-view hidden">
+        <div class="remita-receipt-content">
+          <div class="remita-success-checkmark">
+            <svg class="icon-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="remita-receipt-title">Payment Successful!</h3>
+          <p class="remita-receipt-sub">Bursary ledger transaction verified with Remita e-Payment Gateway.</p>
+
+          <div class="remita-receipt-card">
+            <div class="receipt-row">
+              <span>Biller</span>
+              <strong>Bingham University</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Payer</span>
+              <strong>CHINONSO JOHN PAUL ALADI</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Matric No</span>
+              <strong>BHU/22/01/05/0040</strong>
+            </div>
+            <div class="receipt-row">
+              <span>RRR</span>
+              <strong style="color: #f97316;">3213-7591-1654</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Amount Paid</span>
+              <strong style="color: #22c55e; font-size: 1.05rem;" id="receipt-amount-display">₦2,860,000.00</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Payment Date</span>
+              <strong id="receipt-date-time">15 Oct 2026</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Transaction Ref</span>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem;">REM-2026-992147-BHU</span>
+            </div>
+            <div class="receipt-row">
+              <span>Status</span>
+              <span class="badge-cleared-green">PAID &amp; SETTLED</span>
+            </div>
+          </div>
+
+          <div class="remita-receipt-actions">
+            <button class="btn-remita-print" id="btn-remita-print">
+              <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H7a2 2 0 00-2 2v4h10z" />
+              </svg>
+              <span>Print Remita Receipt</span>
+            </button>
+            <button class="btn-remita-update-portal" id="btn-remita-done">
+              <span>Update Portal Balance &amp; Finish</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" style="position: fixed; top: 1.25rem; right: 1.25rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.5rem; pointer-events: none;"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
