@@ -815,7 +815,7 @@ svg {
   font-weight: 800;
 }
 
-/* Outstanding Due Card */
+/* Due Breakdown Card */
 .due-breakdown-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1127,7 +1127,7 @@ svg {
   display: none;
 }
 
-/* Amber Outstanding Alert */
+/* Amber Health Insurance / Fees Alert */
 .alert-amber-box {
   display: flex;
   align-items: flex-start;

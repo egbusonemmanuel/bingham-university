@@ -185,12 +185,44 @@
             </svg>
           </button>
 
-          <!-- User Initials Avatar CJ -->
-          <div class="nav-user-badge" id="btn-user-badge">
-            <div class="user-initials-square">CJ</div>
-            <svg class="icon-xs" style="color: var(--text-gray-400);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-            </svg>
+          <!-- User Initials Avatar CJ + Dropdown -->
+          <div class="user-badge-container">
+            <div class="nav-user-badge" id="btn-user-badge" role="button" aria-expanded="false" tabindex="0">
+              <div class="user-initials-square">CJ</div>
+              <svg class="icon-xs" style="color: var(--text-gray-400);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+
+            <!-- Profile Dropdown Menu -->
+            <div class="user-profile-dropdown hidden" id="user-profile-dropdown">
+              <div class="dropdown-header">
+                <div class="dropdown-avatar">CJ</div>
+                <div class="dropdown-info">
+                  <strong>CHINONSO JOHN PAUL ALADI</strong>
+                  <span class="dropdown-matric">BHU/22/01/05/0040</span>
+                  <span class="dropdown-level-tag">Computer Science • 500 Level</span>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a href="#profile" class="dropdown-item" id="dropdown-item-profile">
+                <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                <span>Student Profile</span>
+              </a>
+              <a href="#id-card" class="dropdown-item" id="dropdown-item-idcard">
+                <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" /></svg>
+                <span>Digital Student ID Card</span>
+              </a>
+              <a href="#security" class="dropdown-item" id="dropdown-item-security">
+                <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                <span>Security &amp; PIN Settings</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item dropdown-logout" id="dropdown-item-logout">
+                <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                <span>Sign Out</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -339,14 +371,14 @@
         <strong>₦7,365,000</strong>
       </div>
 
-      <!-- Outstanding Due Card -->
+      <!-- Due Breakdown Card -->
       <div class="due-breakdown-card">
         
         <!-- Row 1: 50% Fee Due -->
         <div class="due-row-item">
           <div class="due-left-label">50% Fee Due</div>
           <div class="due-middle-badge">
-            <span class="badge-gold-pill">Previous Outstanding Amount Added</span>
+            <span class="badge-gold-pill">Health Insurance Added</span>
           </div>
           <div class="due-right-amount" id="due-amount-50">₦1,430,000</div>
         </div>
@@ -355,7 +387,7 @@
         <div class="due-row-item">
           <div class="due-left-label">Full Fee Due</div>
           <div class="due-middle-badge">
-            <span class="badge-gold-pill">Previous Outstanding Amount Added</span>
+            <span class="badge-gold-pill">Health Insurance Added</span>
           </div>
           <div class="due-right-amount" id="due-amount-full">₦2,860,000</div>
         </div>
@@ -408,12 +440,12 @@
       <!-- Page Heading -->
       <h1 class="payments-title">Payment Schedule</h1>
 
-      <!-- Amber Outstanding Alert -->
+      <!-- Health Insurance Alert -->
       <div class="alert-amber-box">
         <svg class="icon-md" fill="currentColor" viewBox="0 0 20 20" style="color: #fbbf24; flex-shrink: 0;">
           <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
         </svg>
-        <span>Outstanding amount of <strong>₦230,000</strong> from a previous session has been added to your current fees.</span>
+        <span>Health insurance fee has been added to your current fees.</span>
       </div>
 
       <!-- Current Session Total Payable Row -->
@@ -539,6 +571,415 @@
         </div>
       </div>
 
+    </section>
+
+    <!-- ============================================================
+         MY WALLET VIEW
+         ============================================================ -->
+    <section class="portal-module-pane hidden" id="view-wallet">
+      <div class="pane-header-row">
+        <div>
+          <h1 class="payments-title">My Wallet</h1>
+          <p class="pane-subtitle">Campus student digital wallet &amp; quick fee disbursements</p>
+        </div>
+        <button class="btn-remita-trigger" id="btn-wallet-topup">
+          <span class="remita-dot"></span>
+          <span>Fund Wallet via Remita</span>
+        </button>
+      </div>
+
+      <!-- Wallet Balance Cards Grid -->
+      <div class="wallet-cards-grid">
+        <div class="wallet-balance-card primary">
+          <span class="wallet-card-label">AVAILABLE WALLET BALANCE</span>
+          <div class="wallet-balance-num" id="wallet-balance-display">₦45,500.00</div>
+          <div class="wallet-acc-strip">
+            <span>Bingham Pay Virtual Acc:</span>
+            <strong id="wallet-va-number">9902184128</strong>
+            <button type="button" class="btn-copy-sm" id="btn-copy-va" title="Copy Account Number">Copy</button>
+          </div>
+        </div>
+
+        <div class="wallet-balance-card secondary">
+          <span class="wallet-card-label">LEDGER HOLDS &amp; TRANSIT</span>
+          <div class="wallet-balance-num" style="color: var(--text-gray-300);">₦0.00</div>
+          <div class="wallet-status-tag">Bursary Verified • Active</div>
+        </div>
+      </div>
+
+      <!-- Wallet History Card -->
+      <div class="session-table-card" style="margin-top: 1.25rem;">
+        <div class="table-top-bar" style="justify-content: space-between;">
+          <h3 class="card-inner-title">Wallet Activity Ledger</h3>
+          <span class="badge-cleared-green">Auto-Reconciled</span>
+        </div>
+        <div class="table-responsive-wrapper">
+          <table class="payments-data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Balance After</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>14 Oct 2026</td>
+                <td style="font-weight: 600;">Remita Instant Wallet Topup (Ref: REM-98214)</td>
+                <td><span class="badge-cleared-green">Credit</span></td>
+                <td style="color: #22c55e; font-weight: 700;">+₦50,000.00</td>
+                <td>₦45,500.00</td>
+              </tr>
+              <tr>
+                <td>12 Oct 2026</td>
+                <td style="font-weight: 600;">Medical Laboratory Token (Bingham Clinic)</td>
+                <td><span class="badge-insufficient">Debit</span></td>
+                <td style="color: #ef4444; font-weight: 700;">-₦1,500.00</td>
+                <td>₦-4,500.00</td>
+              </tr>
+              <tr>
+                <td>08 Oct 2026</td>
+                <td style="font-weight: 600;">NACOSS Departmental Dues (CMP 500L)</td>
+                <td><span class="badge-insufficient">Debit</span></td>
+                <td style="color: #ef4444; font-weight: 700;">-₦3,000.00</td>
+                <td>₦-3,000.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRANSACTIONS VIEW
+         ============================================================ -->
+    <section class="portal-module-pane hidden" id="view-transactions">
+      <div class="pane-header-row">
+        <div>
+          <h1 class="payments-title">Transactions</h1>
+          <p class="pane-subtitle">Complete official Remita and Bursary transaction logs</p>
+        </div>
+        <div class="filter-pills-row">
+          <button class="filter-pill active" data-filter="all">All (4)</button>
+          <button class="filter-pill" data-filter="successful">Successful (4)</button>
+          <button class="filter-pill" data-filter="pending">Pending (0)</button>
+        </div>
+      </div>
+
+      <div class="session-table-card">
+        <div class="table-responsive-wrapper">
+          <table class="payments-data-table transactions-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>RRR Reference</th>
+                <th>Amount</th>
+                <th>Channel</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>07 Sep 2026</td>
+                <td style="font-weight: 600;">500L Tuition Fee</td>
+                <td><code class="code-rrr">3213-7591-1654</code></td>
+                <td class="col-amount">₦2,260,000</td>
+                <td>Remita Card</td>
+                <td><span class="badge-cleared-green">PAID</span></td>
+                <td><button class="btn-table-action btn-view-receipt" data-rrr="3213-7591-1654" data-desc="500L Tuition Fee" data-amount="2260000">Receipt</button></td>
+              </tr>
+              <tr>
+                <td>07 Sep 2026</td>
+                <td style="font-weight: 600;">500L Other Charges</td>
+                <td><code class="code-rrr">1413-7588-3621</code></td>
+                <td class="col-amount">₦600,000</td>
+                <td>Remita Bank</td>
+                <td><span class="badge-cleared-green">PAID</span></td>
+                <td><button class="btn-table-action btn-view-receipt" data-rrr="1413-7588-3621" data-desc="500L Other Charges" data-amount="600000">Receipt</button></td>
+              </tr>
+              <tr>
+                <td>15 Jun 2025</td>
+                <td style="font-weight: 600;">400L 2nd Semester Fees</td>
+                <td><code class="code-rrr">8821-4912-0034</code></td>
+                <td class="col-amount">₦1,215,000</td>
+                <td>Bank Branch</td>
+                <td><span class="badge-cleared-green">PAID</span></td>
+                <td><button class="btn-table-action btn-view-receipt" data-rrr="8821-4912-0034" data-desc="400L 2nd Semester Fees" data-amount="1215000">Receipt</button></td>
+              </tr>
+              <tr>
+                <td>10 Jan 2025</td>
+                <td style="font-weight: 600;">400L Hostel Levy</td>
+                <td><code class="code-rrr">5519-2041-9912</code></td>
+                <td class="col-amount">₦250,000</td>
+                <td>Remita Card</td>
+                <td><span class="badge-cleared-green">PAID</span></td>
+                <td><button class="btn-table-action btn-view-receipt" data-rrr="5519-2041-9912" data-desc="400L Hostel Levy" data-amount="250000">Receipt</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EXAMINATION ELIGIBILITY & DOCKET VIEW
+         ============================================================ -->
+    <section class="portal-module-pane hidden" id="view-exam-eligibility">
+      <div class="pane-header-row">
+        <div>
+          <h1 class="payments-title">Examination Eligibility</h1>
+          <p class="pane-subtitle">2026/2027 Academic Session • Official Examination Docket &amp; Clearance</p>
+        </div>
+        <button class="btn-pill-dark" id="btn-print-docket">
+          <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H7a2 2 0 00-2 2v4h10z" /></svg>
+          <span>Print Exam Docket</span>
+        </button>
+      </div>
+
+      <!-- Official Docket Card -->
+      <div class="exam-docket-card">
+        <div class="docket-header-row">
+          <div class="docket-crest-box">
+            <div class="brand-m-circle" style="width: 44px; height: 44px; font-size: 20px;">B</div>
+            <div>
+              <h2 class="docket-uni-name">BINGHAM UNIVERSITY</h2>
+              <p class="docket-motto">Karu, Nasarawa State, Nigeria • Directorate of Academic Affairs</p>
+            </div>
+          </div>
+          <div class="docket-status-badge">
+            <span class="badge-cleared-green" style="font-size: 0.8rem; padding: 0.35rem 0.85rem;">CLEARED TO SIT EXAMS ✓</span>
+          </div>
+        </div>
+
+        <!-- Student Exam Details Strip -->
+        <div class="docket-meta-grid">
+          <div><span class="meta-label">FULL NAME:</span> <strong>CHINONSO JOHN PAUL ALADI</strong></div>
+          <div><span class="meta-label">MATRIC NO:</span> <strong>BHU/22/01/05/0040</strong></div>
+          <div><span class="meta-label">FACULTY:</span> <strong>Science &amp; Technology</strong></div>
+          <div><span class="meta-label">DEPARTMENT:</span> <strong>Computer Science</strong></div>
+          <div><span class="meta-label">LEVEL:</span> <strong>500 Level (Final Year)</strong></div>
+          <div><span class="meta-label">SESSION:</span> <strong>2026/2027 First Semester</strong></div>
+        </div>
+
+        <!-- Approved Courses Table -->
+        <div class="table-responsive-wrapper" style="margin-top: 1rem;">
+          <table class="payments-data-table docket-table">
+            <thead>
+              <tr>
+                <th>Course Code</th>
+                <th>Course Title</th>
+                <th>Credit</th>
+                <th>Status</th>
+                <th>Invigilator Signature</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CMP 501</strong></td>
+                <td>Advanced Artificial Intelligence &amp; Robotics</td>
+                <td>3 Units</td>
+                <td><span class="badge-cleared-green">Verified</span></td>
+                <td><span class="faint-sign-line">_______________</span></td>
+              </tr>
+              <tr>
+                <td><strong>CMP 503</strong></td>
+                <td>Distributed Systems &amp; Cloud Infrastructure</td>
+                <td>3 Units</td>
+                <td><span class="badge-cleared-green">Verified</span></td>
+                <td><span class="faint-sign-line">_______________</span></td>
+              </tr>
+              <tr>
+                <td><strong>CMP 505</strong></td>
+                <td>Information Security &amp; Cryptography</td>
+                <td>3 Units</td>
+                <td><span class="badge-cleared-green">Verified</span></td>
+                <td><span class="faint-sign-line">_______________</span></td>
+              </tr>
+              <tr>
+                <td><strong>CMP 507</strong></td>
+                <td>Compiler Construction &amp; Language Optimization</td>
+                <td>3 Units</td>
+                <td><span class="badge-cleared-green">Verified</span></td>
+                <td><span class="faint-sign-line">_______________</span></td>
+              </tr>
+              <tr>
+                <td><strong>CMP 599</strong></td>
+                <td>Final Year Dissertation &amp; Research Defense</td>
+                <td>6 Units</td>
+                <td><span class="badge-cleared-green">Verified</span></td>
+                <td><span class="faint-sign-line">_______________</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Official Signatures Strip -->
+        <div class="docket-signatures-row">
+          <div class="sig-col">
+            <div class="sig-line">Dr. P. A. Ogwueleka</div>
+            <span>Head of Department (Computer Science)</span>
+          </div>
+          <div class="sig-col">
+            <div class="docket-qr-box">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" style="color: var(--text-white);"><path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm8-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14-2h4v4h-4v-4zm-4 4h4v4h-4v-4zm4 4h4v4h-4v-4zm-4-8h4v4h-4v-4z" /></svg>
+              <span>Security Auth QR</span>
+            </div>
+          </div>
+          <div class="sig-col">
+            <div class="sig-line">Prof. D. O. Onwuka</div>
+            <span>Dean, Faculty of Science &amp; Tech</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ACADEMIC RESULTS VIEW
+         ============================================================ -->
+    <section class="portal-module-pane hidden" id="view-results">
+      <div class="pane-header-row">
+        <div>
+          <h1 class="payments-title">Academic Results</h1>
+          <p class="pane-subtitle">Semester statement of grades &amp; cumulative academic standing</p>
+        </div>
+        <button class="btn-pill-dark" id="btn-print-results">
+          <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          <span>Download Statement (PDF)</span>
+        </button>
+      </div>
+
+      <!-- CGPA Standings KPI Banner -->
+      <div class="cgpa-summary-card">
+        <div class="cgpa-metric-box">
+          <span class="cgpa-label">CUMULATIVE GPA (CGPA)</span>
+          <div class="cgpa-number">4.38 <span class="cgpa-scale">/ 5.00</span></div>
+          <span class="cgpa-class-tag">FIRST CLASS HONOURS</span>
+        </div>
+        <div class="cgpa-stats-grid">
+          <div><span class="stat-lbl">TOTAL UNITS PASSED</span><strong>142 / 142</strong></div>
+          <div><span class="stat-lbl">CURRENT SEMESTER GPA</span><strong>4.82</strong></div>
+          <div><span class="stat-lbl">ACADEMIC STANDING</span><strong style="color: #22c55e;">EXCELLENT</strong></div>
+        </div>
+      </div>
+
+      <!-- Results Table Card -->
+      <div class="session-table-card" style="margin-top: 1.25rem;">
+        <div class="table-top-bar" style="justify-content: space-between;">
+          <h3 class="card-inner-title">400 Level Second Semester Grade Sheet</h3>
+          <span class="pill-total-badge">Semester Units: <strong>17 Units</strong></span>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="payments-data-table results-table">
+            <thead>
+              <tr>
+                <th>Course Code</th>
+                <th>Course Title</th>
+                <th>Units</th>
+                <th>Score</th>
+                <th>Grade</th>
+                <th>Grade Point</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CMP 402</strong></td>
+                <td>Software Engineering Methodologies &amp; Architecture</td>
+                <td>3</td>
+                <td>84%</td>
+                <td><span class="grade-badge grade-a">A</span></td>
+                <td>15.0</td>
+              </tr>
+              <tr>
+                <td><strong>CMP 404</strong></td>
+                <td>Formal Languages &amp; Automata Theory</td>
+                <td>3</td>
+                <td>78%</td>
+                <td><span class="grade-badge grade-a">A</span></td>
+                <td>15.0</td>
+              </tr>
+              <tr>
+                <td><strong>CMP 406</strong></td>
+                <td>Computer Networks, Routing &amp; Network Security</td>
+                <td>3</td>
+                <td>72%</td>
+                <td><span class="grade-badge grade-b">B</span></td>
+                <td>12.0</td>
+              </tr>
+              <tr>
+                <td><strong>CMP 408</strong></td>
+                <td>Human Computer Interaction &amp; UI/UX Engineering</td>
+                <td>2</td>
+                <td>88%</td>
+                <td><span class="grade-badge grade-a">A</span></td>
+                <td>10.0</td>
+              </tr>
+              <tr>
+                <td><strong>CMP 498</strong></td>
+                <td>SIWES Technical Report &amp; Industrial Defense</td>
+                <td>6</td>
+                <td>86%</td>
+                <td><span class="grade-badge grade-a">A</span></td>
+                <td>30.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ACCOMMODATION & HOSTEL ALLOCATION VIEW
+         ============================================================ -->
+    <section class="portal-module-pane hidden" id="view-accommodation">
+      <div class="pane-header-row">
+        <div>
+          <h1 class="payments-title">Hostel Accommodation</h1>
+          <p class="pane-subtitle">Campus Hall of Residence allocation &amp; room reservation</p>
+        </div>
+        <button class="btn-pill-dark" id="btn-print-hostel">
+          <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H7a2 2 0 00-2 2v4h10z" /></svg>
+          <span>Hostel Clearance Pass</span>
+        </button>
+      </div>
+
+      <div class="hostel-allocation-card">
+        <div class="hostel-badge-row">
+          <div class="hostel-name-group">
+            <span class="hostel-sub">ASSIGNED HALL OF RESIDENCE</span>
+            <h2 class="hostel-title">Nelson Mandela Hall of Residence</h2>
+            <p class="hostel-block">Male Senior Block B • Floor 2</p>
+          </div>
+          <span class="badge-cleared-green" style="font-size: 0.85rem; padding: 0.4rem 0.95rem;">KEY ISSUED • OCCUPIED</span>
+        </div>
+
+        <div class="hostel-room-grid">
+          <div class="room-stat-box">
+            <span class="stat-label">ROOM NUMBER</span>
+            <div class="stat-highlight">Room 214</div>
+          </div>
+          <div class="room-stat-box">
+            <span class="stat-label">BED SPACE</span>
+            <div class="stat-highlight">Bed Space 2 (Lower)</div>
+          </div>
+          <div class="room-stat-box">
+            <span class="stat-label">ROOM CAPACITY</span>
+            <div class="stat-highlight">4 Students (Ensuite)</div>
+          </div>
+        </div>
+
+        <div class="hostel-warden-strip">
+          <div>
+            <strong>Hall Warden:</strong> Dr. K. O. Danladi
+            <span style="color: var(--text-gray-400); margin-left: 0.5rem;">(Tel: 0803-000-1234 • Porter Ext: 214)</span>
+          </div>
+          <div style="color: #22c55e;">Fees Reconciled (₦250,000 Paid)</div>
+        </div>
+      </div>
     </section>
 
     <!-- RIGHT SIDEBAR COLUMN -->
